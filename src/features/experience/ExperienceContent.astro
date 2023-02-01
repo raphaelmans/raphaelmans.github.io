@@ -1,0 +1,79 @@
+---
+import { workExperiences } from "utils/constants";
+---
+
+<div class="flex">
+  <!-- companies wrapper -->
+  <experience-tabs class="flex flex-col">
+    <ul>
+      {
+        workExperiences.map((exp) => (
+          <li class="cursor-pointer">{exp.company}</li>
+        ))
+      }
+    </ul>
+  </experience-tabs>
+
+  <!-- work experience wrapper -->
+  <work-experience class="flex flex-col">
+    <h3>
+      <span id="work-title"> Full-Stack Engineer</span>
+      <span id="company-name">Outliant</span>
+    </h3>
+    <p></p>
+
+  </work-experience>
+</div>
+
+<script>
+  import { workExperiences } from "utils/constants";
+
+  class ExperienceTabs extends HTMLElement {
+    constructor() {
+      super();
+      this.setAttribute("selected", "Outliant");
+      const elements = this.querySelectorAll("li");
+      if (elements)
+        elements.forEach((elem) => {
+          elem.addEventListener("click", (e) => {
+            this.setAttribute("selected", elem.innerText);
+          });
+        });
+    }
+
+    static get observedAttributes() {
+      return ["selected"];
+    }
+
+    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+      if (name === "selected" && oldValue != newValue) {
+        this.updateWorkExperience(newValue);
+      }
+    }
+
+    updateWorkExperience(value: string) {
+      const workExperienceElem = document.querySelector("work-experience");
+      if (!workExperienceElem) return;
+      const workTitle = workExperienceElem.querySelector(
+        "#work-title"
+      ) as HTMLSpanElement;
+      const companyName = workExperienceElem.querySelector(
+        "#company-name"
+      ) as HTMLSpanElement;
+
+      if (companyName && workTitle) {
+        workTitle.textContent =
+          workExperiences.find((wExp) => wExp.company === value)?.title ?? "";
+        companyName.innerText = value;
+      }
+    }
+  }
+
+  class WorkExperience extends HTMLElement {
+    constructor() {
+      super();
+    }
+  }
+  customElements.define("experience-tabs", ExperienceTabs);
+  customElements.define("work-experience", WorkExperience);
+</script>

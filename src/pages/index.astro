@@ -1,0 +1,19 @@
+---
+import AboutMeSection from "features/about_me/AboutMeSection.astro";
+import MainSection from "features/intro/MainSection.astro";
+import NavigationBar from "features/header/NavigationBar.astro";
+import NavigationDrawer from "features/header/NavigationDrawer.astro";
+import SMSLinks from "shared/components/SMSLinks.astro";
+import BaseLayout from "layouts/BaseLayout.astro";
+import ExperienceSection from "features/experience/ExperienceSection.astro";
+---
+
+<BaseLayout>
+  <NavigationBar />
+  <MainSection />
+  <AboutMeSection />
+  <ExperienceSection />
+  <SMSLinks />
+
+  <NavigationDrawer />
+</BaseLayout>

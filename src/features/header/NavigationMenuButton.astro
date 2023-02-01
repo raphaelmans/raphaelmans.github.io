@@ -1,0 +1,73 @@
+<nav-menu-button class="block sm:hidden">
+  <button
+    class="block sm:hidden text-sky-400 hover:text-sky-600"
+    id="menu-open-icon"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+  </button>
+  <button
+    class="hidden sm:hidden text-sky-400 hover:text-sky-600"
+    id="menu-close-icon"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+</nav-menu-button>
+
+<script>
+  class NavMenuButton extends HTMLElement {
+    constructor() {
+      super();
+      this.initButtonListener();
+    }
+
+    initButtonListener() {
+      const buttons = this.querySelectorAll("button");
+      const drawer = document.querySelector("#navigation-drawer");
+      const backdrop = document.querySelector("#navigation-drawer-backdrop");
+      const menuOpenIcon = document.querySelector("#menu-open-icon");
+      const menuCloseIcon = document.querySelector("#menu-close-icon");
+      const body = document.querySelector("body");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (drawer && body && menuOpenIcon && menuCloseIcon && backdrop) {
+            body.classList.toggle("overflow-hidden");
+
+            drawer.classList.toggle("hidden");
+            drawer.classList.toggle("flex");
+
+            backdrop.classList.toggle("hidden");
+
+            menuOpenIcon.classList.toggle("hidden");
+
+            menuCloseIcon.classList.toggle("hidden");
+          }
+        });
+      });
+    }
+  }
+  customElements.define("nav-menu-button", NavMenuButton);
+</script>

@@ -1,0 +1,95 @@
+---
+import NavigationItem from "features/header/NavigationItem.astro";
+import NavigationMenuButton from "features/header/NavigationMenuButton.astro";
+---
+
+<nav-bar>
+  <header
+    class="fixed transition ease-in-out delay-200 duration-500 top-0 bg-transparent w-full h-16 z-10"
+  >
+    <nav
+      class="flex flex-row justify-between items-center py-2 px-4 sm:py-4 sm:px-8 h-full"
+    >
+      <h1
+        class="opacity-0 transition ease-in duration-700 delay-200 tracking-[0.25rem] font-bold text-sky-400 hover:text-sky-600 hover:font-extrabold cursor-pointer"
+        id="logo"
+      >
+        RM
+      </h1>
+      <ul class="hidden sm:flex gap-8 items-center">
+        <NavigationItem title="About" duration={200} />
+        <NavigationItem title="Experience" duration={300} />
+        <NavigationItem title="Work" duration={500} />
+        <NavigationItem title="Contact" duration={700} />
+        <button
+          class="border border-sky-400 px-4 py-1 hover:border-sky-600 hover:border-2 text-sky-400 hover:bg-sky-400/10 rounded opacity-0 -translate-y-6 transition ease-in duration-700 delay-300"
+          id="resume-btn"
+        >
+          Resume</button
+        >
+      </ul>
+
+      <NavigationMenuButton />
+    </nav>
+  </header>
+</nav-bar>
+<script>
+  import { onElementLoadTransition } from "utils/transitions";
+
+  class NavBar extends HTMLElement {
+    constructor() {
+      super();
+
+      window.addEventListener("scroll", this.windowScrollListener);
+
+      const logoElement = this.querySelector("#logo");
+      if (logoElement) {
+        onElementLoadTransition({
+          element: logoElement,
+          transitions: [
+            {
+              property: "opacity",
+              from: 0,
+              to: 100,
+            },
+          ],
+        });
+      }
+
+      const resumeBtn = this.querySelector("#resume-btn");
+      if (resumeBtn) {
+        onElementLoadTransition({
+          element: resumeBtn,
+          transitions: [
+            {
+              property: "opacity",
+              from: 0,
+              to: 100,
+            },
+            {
+              property: "-translate-y",
+              from: 6,
+              to: 0,
+            },
+          ],
+        });
+      }
+    }
+
+    windowScrollListener(e: Event) {
+      const onScrollHeight = 10;
+
+      const header = document.querySelector("header");
+      const currentScrollY = window.scrollY;
+      if (header) {
+        if (currentScrollY > onScrollHeight) {
+          header.classList.add("opacity-0");
+          header.classList.add("bg-slate-900");
+        } else {
+          header.classList.remove("opacity-0");
+        }
+      }
+    }
+  }
+  customElements.define("nav-bar", NavBar);
+</script>

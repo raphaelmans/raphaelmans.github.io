@@ -1,0 +1,57 @@
+---
+import BaseSectionLayout from "layouts/BaseSectionLayout.astro";
+import ExperienceContent from "./ExperienceContent.astro";
+
+---
+
+<BaseSectionLayout>
+  <article
+    class="h-screen text-slate-500 flex flex-row justify-center pt-4 sm:pt-0"
+  >
+    <div
+      class="flex flex-col justify-center transition opacity-0 translate-y-4 ease-in duration-300"
+      id="work-exp"
+      onload-transition
+    >
+      <!-- Section Header -->
+      <h2
+        class="flex items-center text-3xl font-bold text-slate-100 after:ml-5 after:content-[''] after:w-full after:md:w-[200px] after:h-[1px] after:block after:bg-slate-600 whitespace-nowrap mb-8"
+      >
+        <span class="text-sky-400 text-sm font-mono mr-2">II.</span>Where I've Worked
+      </h2>
+
+      <!-- Content -->
+      <ExperienceContent/>
+    </div>
+  </article>
+</BaseSectionLayout>
+
+<script>
+  import type { TransitionalElement } from "types/transitional-element";
+  import { onElementVisible, onElementLoadTransition } from "utils/transitions";
+
+  const aboutMeSection = document.querySelector("#work-exp");
+  if (aboutMeSection) {
+    const te: TransitionalElement = {
+      element: aboutMeSection,
+      transitions: [
+        {
+          property: "opacity",
+          from: 0,
+          to: 100,
+        },
+        {
+          property: "translate-y",
+          from: 4,
+          to: 0,
+        },
+      ],
+    };
+    onElementVisible(
+      aboutMeSection,
+      te,
+      "onload-transition",
+      onElementLoadTransition
+    );
+  }
+</script>
