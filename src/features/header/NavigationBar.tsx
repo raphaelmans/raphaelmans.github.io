@@ -1,5 +1,5 @@
+import React from "react";
 import { animated, easings, useScroll, useSpring } from "@react-spring/web";
-import React, { useEffect, useState } from "react";
 import type PageLink from "types/page-link";
 import { pageLinks as siteLinks, RESUME_LINK } from "utils/constants";
 import { baseTransitionStyle } from "utils/transitions";
@@ -60,6 +60,9 @@ const NavigationBar = (props: Props) => {
           opacity: 100,
         });
       }
+    },
+    default: {
+      immediate: true,
     },
   });
 
