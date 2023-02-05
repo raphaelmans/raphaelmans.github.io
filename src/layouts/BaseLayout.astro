@@ -13,6 +13,11 @@ const { title } = Astro.props;
 
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Raphael Mansueto" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Hi, I build quality websites" />
+    <meta property="og:url" content="https://raphaelmans.github.io/" />
+
     <title>{title ?? "RM"}</title>
   </head>
   <body id="root" class="bg-slate-900 text-slate-300 sm:overflow-auto">
