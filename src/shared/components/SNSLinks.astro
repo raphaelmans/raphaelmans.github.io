@@ -9,7 +9,7 @@ import { SNSList } from "utils/constants";
     {
       SNSList.map((sns) => (
         <li class="mb-2">
-          <a href="#" class="hover:text-sky-400">
+          <a href={sns.link} target="_blank" class="hover:text-sky-400">
             {sns.name}
           </a>
         </li>
