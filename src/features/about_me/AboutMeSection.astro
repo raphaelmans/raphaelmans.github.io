@@ -1,15 +1,8 @@
 ---
 import BaseSectionLayout from "layouts/BaseSectionLayout.astro";
-import MyPicture from "assets/images/raphaelmansueto_pic.png";
-
-const technologies = [
-  "JavaScript (ES6+)",
-  "Typescript",
-  "ReactJs",
-  "NodeJs",
-  "AstroJs",
-  "Flutter",
-];
+import myPicture from "assets/images/raphaelmansueto_pic.png";
+import { Image } from "@astrojs/image/components";
+import { technologies } from "utils/constants";
 ---
 
 <BaseSectionLayout>
@@ -28,21 +21,21 @@ const technologies = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="flex flex-col gap-4">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit
-            amet mi congue, ultricies enim vitae, feugiat dolor. Maecenas
-            vestibulum sit amet magna ut pretium.
+            With <span class="font-bold font-mono text-sky-400"
+              >2 years+ of experience in software development</span
+            >, I have a well-rounded skill set that covers all aspects of the
+            development process, from front-end to back-end programming.
           </p>
 
           <p>
-            Orci varius natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Aliquam vestibulum iaculis dolor, at auctor
-            nibh mollis quis.
+            My strong foundation in programming and design principles allows me
+            to create intuitive apps that are visually appealing and highly
+            performant.
           </p>
 
           <p>
-            Nullam at ornare mi. Vestibulum eget purus commodo justo efficitur
-            lobortis. Aenean vitae massa ut dolor faucibus congue non non nisi.
-            Nulla quis ultrices ipsum.
+            I take pride in my attention to detail and my ability to deliver
+            quality apps on time.
           </p>
 
           <p>Here are a few technologies I’ve been working with recently:</p>
@@ -58,14 +51,15 @@ const technologies = [
         </div>
 
         <div
-          class="max-w-[300px] max-h-[300px] w-full flex bg-sky-400 mx-auto cursor-pointer rounded-md"
+          class="hidden sm:flex max-w-[300px] max-h-[300px] w-full bg-sky-400 mx-auto cursor-pointer rounded-md"
         >
           <div
             class="relative flex rounded after:transition after:ease-in after:duration-200 w-full before:content-[''] before:absolute before:w-full before:h-full before:rounded before:inset-0 \before:mix-blend-screen hover:before:mix-blend-normal hover:before:bg-transparent after:content-[''] after:z-[-1] after:absolute after:h-full after:w-full after:left-6 after:top-6 hover:after:translate-x-[-8px] hover:after:translate-y-[-8px] after:border-sky-400 after:border after:rounded"
           >
-            <img
-              src={MyPicture}
+            <Image
+              src={myPicture}
               class="relative object-cover max-w-full w-full mix-blend-multiply hover:mix-blend-normal rounded-md"
+              alt="raphael mansueto 1x1 picture"
             />
           </div>
         </div>
@@ -95,7 +89,11 @@ const technologies = [
         },
       ],
     };
-    onElementVisible(aboutMeSection, te, "onload-transition", onElementLoadTransition);
+    onElementVisible(
+      aboutMeSection,
+      te,
+      "onload-transition",
+      onElementLoadTransition
+    );
   }
-
 </script>

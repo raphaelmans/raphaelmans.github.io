@@ -1,4 +1,19 @@
+import { easings } from "@react-spring/web";
 import type { TransitionalElement } from "types/transitional-element";
+
+export const baseTransitionStyle = (duration?: number, delay?: number) => ({
+  from: {
+    opacity: 0,
+  },
+  to: {
+    opacity: 1,
+  },
+  config: {
+    duration: duration ?? 250,
+    easing: easings.easeInCubic,
+  },
+  delay: delay ?? 0,
+});
 
 const onElementLoadTransition = (te: TransitionalElement) => {
   const { element: elem, transitions } = te;

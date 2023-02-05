@@ -1,0 +1,19 @@
+---
+import { SNSList } from "utils/constants";
+---
+
+<footer class="block sm:hidden bg-sky-900 w-full mt-10">
+  <ul
+    class="container flex justify-center py-4 px-2 text-sky-50 text-sm font-light gap-3 font-mono"
+  >
+    {
+      SNSList.map((sns) => (
+        <li class="cursor-pointer hover:text-sky-200">
+          <a href={sns.link} target="_blank">
+            {sns.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
