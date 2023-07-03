@@ -52,15 +52,22 @@ export const SNSList: SNS[] = [
 
 export const workExperiences: WorkExperience[] = [
   {
+    company: "ReconnectIQ",
+    start: "February 2022",
+    end: "June 2023",
+    title: "Software Engineer",
+    experiences: [
+      "Led the development of the entire front-end web application for ReconnectIQ which is a web app designed to safeguard and manage individuals' networks with multiple Gmail accounts, preserving relationships and offering practical functionalities for effective network management.",
+    ],
+  },
+  {
     company: "Outliant",
     start: "June 2022",
     end: "November 2022",
     title: "React Full Stack Developer",
     experiences: [
-      "Developed and maintained web applications ranging from admin panels to community forums.",
-      "The first project I developed was a wellness admin panel integrated with Algolia powered search.",
-      "A music copyright contract generator web app was the second and most complex project that I have worked on. I was mainly involved in bug fixing and adding new features.",
-      "The last project I worked on was a social media web app that mainly focused on generating new ideas for established brands. This project enabled me to experience integrating GraphQL APIs.",
+      `Developed and made significant contributions to the creation of "Chaos," a social media web app designed to facilitate brainstorming sessions and idea generation among users.`,
+      "Assisted in various other web app projects, including the development of admin panels and a music contract generator.",
     ],
   },
   {
@@ -69,10 +76,10 @@ export const workExperiences: WorkExperience[] = [
     end: "March 2022",
     title: "Junior Software Engineer",
     experiences: [
-      "Handled web app bugs and user interface enhancements. Also implemented various APIs",
-      "Integrated blockchain libraries for the web app’s cryptocurrency transactions.",
-      "Developed a crypto telegram bot that enabled its users to easily transact Syscoin through chat.",
-      "Utilized AngularJs, NodeJs, Web3Js, ExpressJs, Prisma, PlanetScale, MongoDB, and Docker.",
+      "Improved web app bugs and resolved user interface.",
+      "Integrated multiple APIs into the web app.",
+      "Implemented blockchain libraries for cryptocurrency transactions.",
+      "Developed a crypto telegram bot for seamless Syscoin transactions.",
     ],
   },
   {
