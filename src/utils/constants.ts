@@ -33,7 +33,7 @@ export const technologies = [
 ];
 
 export const RESUME_LINK =
-  "https://drive.google.com/file/d/1nTqkgmgSekWSMeMqqzTgsyV8D2UTOjVg/view?usp=share_link";
+  "https://drive.google.com/file/d/1VqJdftqLIdM-C_BYYuL7lZsBj_kx2lMk/view?usp=sharing";
 
 export const SNSList: SNS[] = [
   {
